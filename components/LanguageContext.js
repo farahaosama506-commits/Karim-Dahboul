@@ -1,4 +1,4 @@
-// components/LanguageContext.js - تأكد من وجوده
+﻿// components/LanguageContext.js - تأكد من وجوده
 "use client";
 import React, { createContext, useState, useContext } from 'react';
 
@@ -21,6 +21,16 @@ const translations = {
     course: 'اختر الكورس',
     confirm: 'تأكيد الحجز',
     cancel: 'إلغاء',
+    courseBooking: 'حجز الكورس',
+    startsOn: 'تاريخ البداية',
+    endsOn: 'تاريخ الانتهاء',
+    totalHours: 'عدد الساعات',
+    certificate: 'الشهادة',
+    institute: 'المعهد المانح',
+    bookNow: 'احجز الآن',
+    backToCourses: 'العودة للكورسات',
+    courseNotFound: 'الكورس غير موجود',
+    courseNotFoundMessage: 'الرجاء العودة إلى صفحة الكورسات واختيار كورس صالح.',
     footer: 'جميع الحقوق محفوظة'
   },
   en: {
@@ -39,6 +49,16 @@ const translations = {
     course: 'Select Course',
     confirm: 'Confirm Booking',
     cancel: 'Cancel',
+    courseBooking: 'Course Booking',
+    startsOn: 'Starts On',
+    endsOn: 'Ends On',
+    totalHours: 'Total Hours',
+    certificate: 'Certificate',
+    institute: 'Institute',
+    bookNow: 'Book Now',
+    backToCourses: 'Back to Courses',
+    courseNotFound: 'Course Not Found',
+    courseNotFoundMessage: 'Please go back to the courses page and choose a valid course.',
     footer: 'All Rights Reserved'
   }
 };

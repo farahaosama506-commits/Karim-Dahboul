@@ -372,6 +372,90 @@ button {
   transform: scale(1.02);
 }
 
+.booking-page {
+  padding: 80px 0;
+}
+
+.booking-card {
+  display: grid;
+  gap: 2rem;
+  background: rgba(73, 118, 159, 0.18);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(123, 189, 232, 0.25);
+  border-radius: 30px;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.booking-image {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.booking-content {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.booking-desc {
+  color: #BDD8E9;
+  line-height: 1.8;
+}
+
+.booking-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.booking-meta-item {
+  background: rgba(0, 29, 57, 0.75);
+  border: 1px solid rgba(123, 189, 232, 0.15);
+  border-radius: 18px;
+  padding: 1rem;
+  color: #BDD8E9;
+}
+
+.booking-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.book-now-btn,
+.back-link {
+  text-decoration: none;
+}
+
+.book-now-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #4E8EA2;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 1rem 1.6rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.book-now-btn:hover {
+  background: #7BBDE8;
+}
+
+.back-link {
+  color: #BDD8E9;
+  border-bottom: 1px dashed #BDD8E9;
+}
+
+.back-link:hover {
+  color: #7BBDE8;
+}
+
 /* Online Section */
 .online-content {
   background: rgba(0, 29, 57, 0.6);
