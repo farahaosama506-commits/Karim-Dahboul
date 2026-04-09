@@ -25,9 +25,10 @@ export default function BookingPage({ params }) {
   }
 
   const message = language === 'ar'
-    ? `مرحباً، أود حجز الكورس التالي: ${course.name} (${course.price}).` 
-    : `Hello, I would like to book the following course: ${course.name} (${course.price}).`;
+    ? `مرحباً، أود حجز الكورس التالي: ${course.name}.` 
+    : `Hello, I would like to book the following course: ${course.name}.`;
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  const isGroupCourse = Array.isArray(course.levels);
 
   return (
     <section className="booking-page">
@@ -40,15 +41,6 @@ export default function BookingPage({ params }) {
             <p className="booking-desc">{course.desc}</p>
             <div className="booking-meta">
               <div className="booking-meta-item">
-                <strong>{t('price')}:</strong> {course.price}
-              </div>
-              <div className="booking-meta-item">
-                <strong>{t('startsOn')}:</strong> {course.startDate}
-              </div>
-              <div className="booking-meta-item">
-                <strong>{t('endsOn')}:</strong> {course.endDate}
-              </div>
-              <div className="booking-meta-item">
                 <strong>{t('totalHours')}:</strong> {course.hours}
               </div>
               <div className="booking-meta-item">
@@ -58,10 +50,34 @@ export default function BookingPage({ params }) {
                 <strong>{t('institute')}:</strong> {course.institute}
               </div>
             </div>
+            {isGroupCourse ? (
+              <div className="course-levels-list">
+                {(course.levels || []).map((level) => {
+                  const levelMessage = language === 'ar'
+                    ? `مرحباً، أود حجز ${level.name} من ${course.name}.`
+                    : `Hello, I would like to book ${level.name} from ${course.name}.`;
+                  const levelLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(levelMessage)}`;
+
+                  return (
+                    <div key={level.name} className="course-level-item">
+                      <h4>{level.name}</h4>
+                      <p>{level.desc}</p>
+                      <p><strong>{t('totalHours')}:</strong> {level.hours}</p>
+                      <Link href={levelLink} target="_blank" className="book-now-btn btn-level">
+                        {t('bookNow')}
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="booking-actions">
+                <Link href={whatsappLink} target="_blank" className="book-now-btn">
+                  {t('bookNow')}
+                </Link>
+              </div>
+            )}
             <div className="booking-actions">
-              <Link href={whatsappLink} target="_blank" className="book-now-btn">
-                {t('bookNow')}
-              </Link>
               <Link href="/" className="back-link">{t('backToCourses')}</Link>
             </div>
           </div>
