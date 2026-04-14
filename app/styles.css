@@ -15,6 +15,23 @@
   opacity: 1;
 }
 
+/* تحسين التدرجات */
+.btn-course {
+  background: linear-gradient(135deg, #4E8EA2 0%, #7BBDE8 50%, #4E8EA2 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.btn-course:hover {
+  animation-play-state: paused;
+}
+
 /* تحسين الظلال */
 .course-card {
   box-shadow:
@@ -86,12 +103,107 @@ p, span, div {
   line-height: 1.6;
 }
 
-/* تحسين الأزرار */
-button, .btn-course, .book-now-btn, .back-link {
+/* تحسين الأزرار - تصميم متناسق */
+button, .btn-course, .book-now-btn, .back-link, .lang-btn, .btn-primary {
   font-family: inherit;
   font-weight: 600;
   letter-spacing: 0.02em;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+}
+
+button::before, .btn-course::before, .book-now-btn::before, .back-link::before, .lang-btn::before, .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+button:hover::before, .btn-course:hover::before, .book-now-btn:hover::before, .back-link:hover::before, .lang-btn:hover::before, .btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* أزرار أساسية */
+.btn-primary {
+  background: linear-gradient(135deg, #4E8EA2 0%, #7BBDE8 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(78, 142, 162, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(78, 142, 162, 0.4);
+}
+
+/* أزرار الكورسات */
+.btn-course {
+  background: linear-gradient(135deg, #4E8EA2 0%, #7BBDE8 100%);
+  color: white;
+  width: calc(100% - 4rem);
+  margin: 0 2rem 2rem;
+  box-shadow: 0 4px 15px rgba(78, 142, 162, 0.3);
+}
+
+.btn-course:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(78, 142, 162, 0.4);
+}
+
+/* أزرار الحجز */
+.book-now-btn {
+  background: linear-gradient(135deg, #4E8EA2 0%, #7BBDE8 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(78, 142, 162, 0.3);
+}
+
+.book-now-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(78, 142, 162, 0.4);
+}
+
+/* أزرار العودة */
+.back-link {
+  color: #BDD8E9;
+  border: 2px solid #7BBDE8;
+  background: transparent;
+}
+
+.back-link:hover {
+  color: #001D39;
+  background: #7BBDE8;
+  transform: translateY(-2px);
+}
+
+/* أزرار اللغة */
+.lang-btn {
+  background: #49769F;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.lang-btn:hover {
+  background: #6EA2B3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(78, 142, 162, 0.3);
 }
 
 /* تحسين الصور */
@@ -497,8 +609,7 @@ button {
 }
 
 .btn-course {
-  background: linear-gradient(135deg, #4E8EA2 0%, #7BBDE8 50%, #4E8EA2 100%);
-  background-size: 200% 200%;
+  background: linear-gradient(135deg, #4E8EA2 0%, #7BBDE8 100%);
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -512,16 +623,6 @@ button {
   overflow: hidden;
   cursor: pointer;
   letter-spacing: 0.02em;
-  animation: gradientShift 3s ease infinite;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 .btn-course::before {
@@ -545,7 +646,6 @@ button {
 .btn-course:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(78, 142, 162, 0.4);
-  animation-play-state: paused;
 }
 
 /* أنماط خاصة للبطاقة الجماعية */
@@ -558,14 +658,6 @@ button {
 .course-group-card .course-desc {
   font-size: 1.1rem;
   margin-bottom: 2rem;
-}
-
-.course-group-card .btn-course {
-  width: calc(100% - 4rem);
-  margin: 0 2rem 2rem;
-  max-width: 300px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* أنماط للمستويات داخل صفحة الحجز */
@@ -728,33 +820,6 @@ button {
   padding: 1rem 2rem;
   font-size: 1rem;
   letter-spacing: 0.02em;
-}
-
-.book-now-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #4E8EA2 0%, #7BBDE8 100%);
-  color: white;
-  border: none;
-  box-shadow: 0 4px 15px rgba(78, 142, 162, 0.3);
-}
-
-.book-now-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(78, 142, 162, 0.4);
-}
-
-.back-link {
-  color: #BDD8E9;
-  border: 2px solid #7BBDE8;
-  background: transparent;
-}
-
-.back-link:hover {
-  color: #001D39;
-  background: #7BBDE8;
-  transform: translateY(-2px);
 }
 
 /* Online Section */
@@ -1003,17 +1068,10 @@ footer {
     width: calc(100% - 3rem);
     margin: 0 1.5rem 1.5rem;
     padding: 0.9rem 1.5rem;
-    font-size: 0.95rem;
   }
 
   .course-group-card {
     grid-column: 1;
-  }
-
-  .course-group-card .btn-course {
-    width: calc(100% - 3rem);
-    margin: 0 1.5rem 1.5rem;
-    max-width: none;
   }
 
   .course-levels-list {
@@ -1111,48 +1169,7 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  .course-card h3 {
-    font-size: 1.2rem;
-  }
-
-  .course-desc {
-    font-size: 0.9rem;
-  }
-
-  .btn-course {
-    padding: 0.8rem 1.2rem;
-    font-size: 0.9rem;
-    margin: 0 1.2rem 1.2rem;
-    width: calc(100% - 2.4rem);
-  }
-
-  .course-group-card .btn-course {
-    width: calc(100% - 2.4rem);
-    margin: 0 1.2rem 1.2rem;
-  }
-
-  .course-level-item {
-    padding: 1.2rem;
-  }
-
-  .course-level-item h4 {
-    font-size: 1.1rem;
-  }
-}
+/* إضافة في نهاية ملف styles.css */
 
 /* Custom Alert Styles */
 .custom-alert-overlay {

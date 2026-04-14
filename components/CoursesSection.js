@@ -1,5 +1,6 @@
 ﻿// components/CoursesSection.js
 "use client";
+import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from './LanguageContext';
 import { coursesData } from '@/lib/coursesData';
@@ -17,13 +18,13 @@ export default function CoursesSection() {
         <div className="courses-grid">
           {groupCourse && (
             <div className="course-card course-group-card">
-              <img
+              <Image
                 src={groupCourse.image}
                 alt={groupCourse.name}
                 className="course-image"
-                onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/400x200/4E8EA2/FFFFFF?text=Conversation+Course';
-                }}
+                width={420}
+                height={240}
+                sizes="(max-width: 768px) 100vw, 420px"
               />
               <h3>{groupCourse.name}</h3>
               <p className="course-desc">{groupCourse.desc}</p>
@@ -35,13 +36,13 @@ export default function CoursesSection() {
 
           {otherCourses.map((course) => (
             <div key={course.id} className="course-card">
-              <img
+              <Image
                 src={course.image}
                 alt={course.name}
                 className="course-image"
-                onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/400x200/4E8EA2/FFFFFF?text=English+Course';
-                }}
+                width={420}
+                height={240}
+                sizes="(max-width: 768px) 100vw, 420px"
               />
               <h3>{course.name}</h3>
               <p className="course-desc">{course.desc}</p>

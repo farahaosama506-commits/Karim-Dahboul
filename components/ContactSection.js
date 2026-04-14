@@ -6,16 +6,16 @@ export default function ContactSection() {
 
   const socialLinks = {
     ar: [
-      { name: 'Instagram', icon: '📸', link: 'https://instagram.com/english.teacher', color: '#E4405F' },
-      { name: 'Facebook', icon: '📘', link: 'https://facebook.com/englishteacher', color: '#1877F2' },
+      { name: 'Instagram', icon: '📸', link: 'https://www.instagram.com/kareemdahboul?igsh=bzBmenc5c2M4NWdh', color: '#E4405F' },
+      { name: 'Facebook', icon: '📘', link: 'https://www.facebook.com/share/1DyGw6yQG9/', color: '#1877F2' },
       { name: 'Email', icon: '📧', link: 'mailto:teacher@english.com', color: '#EA4335' },
-      { name: 'WhatsApp', icon: '💬', link: 'https://wa.me/966500000000', color: '#25D366' }
+      { name: 'WhatsApp', icon: '💬', link: 'https://wa.me/0935524819', color: '#25D366' }
     ],
     en: [
-      { name: 'Instagram', icon: '📸', link: 'https://instagram.com/english.teacher', color: '#E4405F' },
-      { name: 'Facebook', icon: '📘', link: 'https://facebook.com/englishteacher', color: '#1877F2' },
+      { name: 'Instagram', icon: '📸', link: 'https://www.instagram.com/kareemdahboul?igsh=bzBmenc5c2M4NWdh', color: '#E4405F' },
+      { name: 'Facebook', icon: '📘', link: 'https://www.facebook.com/share/1DyGw6yQG9/', color: '#1877F2' },
       { name: 'Email', icon: '📧', link: 'mailto:teacher@english.com', color: '#EA4335' },
-      { name: 'WhatsApp', icon: '💬', link: 'https://wa.me/966500000000', color: '#25D366' }
+      { name: 'WhatsApp', icon: '💬', link: 'https://wa.me/0935524819', color: '#25D366' }
     ]
   };
 

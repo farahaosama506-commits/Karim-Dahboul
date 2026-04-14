@@ -1,5 +1,6 @@
 // components/HeroSlider.js
 "use client";
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useLanguage } from './LanguageContext';
 
@@ -75,13 +76,14 @@ export default function HeroSlider() {
             key={index}
             className={`hero-slide ${index === currentIndex ? 'active' : ''}`}
           >
-            <img
+            <Image
               src={slide.image}
               alt={language === 'ar' ? slide.titleAr : slide.titleEn}
               className="hero-slide-image"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/1920x1080/0A4174/BDD8E9?text=English+Learning';
-              }}
+              fill
+              sizes="100vw"
+              priority={index === 0}
+              style={{ objectFit: 'cover' }}
             />
             <div className="hero-slide-overlay">
               <div className="hero-content">

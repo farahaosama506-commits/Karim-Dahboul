@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { use } from 'react';
 import { useLanguage } from '@/components/LanguageContext';
@@ -25,7 +26,7 @@ export default function BookingPage({ params }) {
   }
 
   const message = language === 'ar'
-    ? `مرحباً، أود حجز الكورس التالي: ${course.name}.` 
+    ? `مرحباً، أود حجز الكورس التالي: ${course.name}.`
     : `Hello, I would like to book the following course: ${course.name}.`;
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   const isGroupCourse = Array.isArray(course.levels);
@@ -35,7 +36,16 @@ export default function BookingPage({ params }) {
       <div className="container">
         <h2>{t('courseBooking')}</h2>
         <div className="booking-card">
-          <img src={course.image} alt={course.name} className="booking-image" onError={(e) => { e.target.src = 'https://via.placeholder.com/900x400/4E8EA2/FFFFFF?text=Course+Booking'; }} />
+          <div className="booking-image-wrapper" style={{ position: 'relative', width: '100%', height: '450px' }}>
+            <Image
+              src={course.image}
+              alt={course.name}
+              className="booking-image"
+              fill
+              sizes="100vw"
+              style={{ objectFit: 'cover', borderRadius: '24px' }}
+            />
+          </div>
           <div className="booking-content">
             <h3>{course.name}</h3>
             <p className="booking-desc">{course.desc}</p>
